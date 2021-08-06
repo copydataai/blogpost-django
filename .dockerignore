@@ -1,0 +1,6 @@
+*.md
+*/.git*
+*/.venv*
+*/.envs*
+*/compose*
+*/postgres_data*
