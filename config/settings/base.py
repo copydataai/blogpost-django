@@ -5,6 +5,8 @@ import environ
 BASE_DIR = environ.Path(__file__) - 3
 APPS_DIR = BASE_DIR.path('blog')
 
+AUTH_USER_MODEL = 'users.User'
+
 env = environ.Env()
 
 DEBUG = env.bool('DJANGO_DEBUG', False)
@@ -17,7 +19,9 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'blog.users.apps.UsersAppConfig',
+    ]
 
 THIRD_PARTY_APPS = [
     'rest_framework',
