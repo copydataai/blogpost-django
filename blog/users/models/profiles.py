@@ -3,13 +3,16 @@
 # Django
 from django.db import models
 
+# Models
+from .users import User
+
 # Utilities
 from blog.utils.models import BPostModel
 
 class Profile(models.Model):
     """Profile model."""
 
-    user = models.OneToOneField('users.User', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     picture = models.ImageField(
         'profile picture',

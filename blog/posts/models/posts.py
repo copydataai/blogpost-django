@@ -8,20 +8,20 @@ from ckeditor.fields import RichTextField
 from blog.utils.models import BPostModel
 
 # Models
-from blog.users.models import Profile
+from blog.users.models import Profile, User
 
 class Post(BPostModel):
     """Post model."""
-    user = models.OneToOneField('users.User', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
-    photo = models.ImageField(upload_to='posts/photos')
+    photo = models.ImageField(upload_to='posts/photos', blank=True, null=True)
     content = RichTextField()
 
     class Meta:
-        ordering = ('title')
+        ordering = ('created', 'modified')
 
     def __str__(self):
         """Return Title and username"""

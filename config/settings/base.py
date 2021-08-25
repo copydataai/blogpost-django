@@ -21,6 +21,7 @@ DJANGO_APPS = [
 ]
 LOCAL_APPS = [
     'blog.users.apps.UsersAppConfig',
+    'blog.posts.apps.PostsAppConfig',
     ]
 
 THIRD_PARTY_APPS = [
@@ -37,8 +38,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',]
 
 ROOT_URLCONF = 'config.urls'
 
@@ -121,9 +121,6 @@ ADMIN_URL = 'admin/'
 # Media
 MEDIA_ROOT = str(APPS_DIR('media'))
 MEDIA_URL = '/media/'
-
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Django REST Framework
 REST_FRAMEWORK = {

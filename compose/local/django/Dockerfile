@@ -1,6 +1,7 @@
 FROM python:3.9-alpine
 
 ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
 
 RUN apk update \
   # psycopg2 dependencies
