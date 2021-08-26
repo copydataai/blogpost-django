@@ -7,13 +7,11 @@ from ckeditor.fields import RichTextField
 # Utilities
 from blog.utils.models import BPostModel
 
-# Models
-from blog.users.models import Profile, User
 
 class Post(BPostModel):
     """Post model."""
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.OneToOneField('users.User', on_delete=models.CASCADE)
+    profile = models.ForeignKey('users.Profile', on_delete=models.CASCADE)
 
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
